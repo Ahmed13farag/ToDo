@@ -1,8 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_mn/ui/home/home_screen.dart';
 import 'package:todo_mn/ui/my_theme.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async{
+  await WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp( MyApp());
 }
 
@@ -19,6 +27,8 @@ class MyApp extends StatelessWidget {
       initialRoute: HomeScreen.routeName ,
 
       theme: MyTheme.lightTheme,
+
+
 
     );
 
